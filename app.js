@@ -45,7 +45,7 @@ const route = new Router()
 
 const routes = require('./routes')
 
-route.use('/*', routes.routeApi.routes())
+route.use('/quotely/*', routes.routeApi.routes())
 
 app.use(route.routes())
 

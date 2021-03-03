@@ -85,7 +85,7 @@ const downloadAvatarImage = async (user) => {
     '#2996ad',
     '#ce671b'
   ]
-
+  //console.log(user.photo.big_file_id)
   const colorMapId = [0, 7, 4, 1, 6, 3, 5]
   const nameIndex = Math.abs(user.id) % 7
 
@@ -100,10 +100,11 @@ const downloadAvatarImage = async (user) => {
       let userPhoto, userPhotoUrl
 
       if (user.photo && user.photo.big_file_id) userPhotoUrl = await telegram.getFileLink(user.photo.big_file_id).catch(console.error)
-
+	  
       if (!userPhotoUrl) {
-        const getChat = await telegram.getChat(user.id).catch(console.error)
-        if (getChat && getChat.photo && getChat.photo.big_file_id) userPhoto = getChat.photo.big_file_id
+		let userPhoto
+        // const getChat = await telegram.getChat(user.id).catch(console.error)
+        // if (getChat && getChat.photo && getChat.photo.big_file_id) userPhoto = getChat.photo.big_file_id		
 
         if (userPhoto) userPhotoUrl = await telegram.getFileLink(userPhoto)
         else if (user.username) userPhotoUrl = `https://telega.one/i/userpic/320/${user.username}.jpg`
