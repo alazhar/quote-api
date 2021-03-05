@@ -617,8 +617,8 @@ async function drawQuote (scale = 1, backgroundColor, avatar, replyName, replyTe
   }
 
   if (mediaType !== 'sticker' || name || replyName) rect = drawRoundRect(backgroundColor, rectWidth, rectHeight, rectRoundRadius)
-
-  if (avatar) canvasCtx.drawImage(avatar, avatarPosX, avatarPosY, avatarSize, avatarSize)
+  
+  if (avatar) canvasCtx.drawImage(avatar, avatarPosX, height-100, avatarSize, avatarSize)
   if (rect) canvasCtx.drawImage(rect, rectPosX, rectPosY)
   if (name) canvasCtx.drawImage(name, namePosX, namePosY)
   if (text) canvasCtx.drawImage(text, textPosX, textPosY)
